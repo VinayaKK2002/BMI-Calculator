@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+     <style>
+        #outerdiv{
+            background-image: url(./pngtre.jpg);
+        }
+    </style> 
+    <title>bmi calculator</title>
+</head>
+<body>
+    <div class="container text-center w-70   mt-5" style="height: 650px;;border-radius: 10px;  display: flex;width: 900px; " id="outerdiv">
+        <div style="width: 650px;height: 600px;">
+        </div>
+        <div style="background-color:yellowgreen;width: 500px;">
+            <h1 style="color:white;font-family:cursive;">BMI CALCULATOR</h1>
+            <h1 style="margin-top: 30px;color:white;font-family:cursive;">Your Height(m) :</h1>
+            <input id="height" type="text" style="font-size: 20px;border-radius: 10px;">
+            <h1  style="margin-top: 30px;color:white;font-family:cursive;;">Your Weight(kg):</h1>
+            <input id="weight" type="text"  style="font-size: 20px;border-radius: 10px;"><br><br>
+            <button style="padding:10px;background-color: green; color: white;border-radius: 10px;" onclick="computebmi()">Compute BMI</button>
+            <h1  style="margin-top: 30px;color:white;font-family:cursive;">Your BMI</h1>
+            <input id="bmi" type="text"  style="font-size: 20px;border-radius: 10px;">
+            <div id="content1">
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    function computebmi(){
+        a=(weight.value/(height.value)**2).toFixed(2)
+        bmi.value=a
+        if(a<18.5){
+            content1.innerHTML="Under Weight"
+            content1.innerHTML=`<div style="border: solid; background-color: white; width: 200px;height: 100px;margin-top: 30px;margin-left: 100px;">
+            <h1 style="color:red;" id="content1" >Under Weight</h1>
+        </div>`
+        }
+        else if(a<=24.9 && a>=18.5 ){
+            content1.innerHTML="Normal Weight"
+            content1.innerHTML=`<div style="border-radius: 10px;border: solid; background-color: white; width: 200px;height: 100px;margin-top: 30px;margin-left: 100px;">
+            <h1 style="color:orange;" id="content1" >Normal Weight</h1>
+        </div>`
+
+        }
+        else if(a<=29.9 && a>=25 ){
+            content1.innerHTML="over Weight"
+            content1.innerHTML=`<div style="border-radius: 10px;border: solid; background-color: white; width: 200px;height: 100px;margin-top: 30px;margin-left: 100px;">
+            <h1 style="color:green;" id="content1" >over Weight</h1>
+        </div>`
+
+        }
+        else{
+            content1.innerHTML="Obesity Weight"
+            content1.innerHTML=`<div style="border-radius: 10px;border: solid; background-color: white; width: 200px;height: 100px;margin-top: 30px;margin-left: 100px;">
+            <h1 style="color:blue;" id="content1" >Obesity Weight</h1>
+        </div>`
+
+        }
+
+
+        
+
+    }
+</script>
+</html>
